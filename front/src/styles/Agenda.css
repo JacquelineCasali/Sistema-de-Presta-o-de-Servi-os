@@ -1,0 +1,171 @@
+/* .agenda{
+    height: 610px;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.agendamento{
+    display: flex;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    /* padding: 1rem; */
+  
+    
+  }
+  
+  
+    .center1 {
+        padding: 1rem;
+       background: white;
+       /* text-align: center; */
+      
+       border-radius: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  margin:  0 ;
+ 
+ /* max-height: auto; */
+  
+  /* z-index: 30; */
+  }
+
+  
+  .titulo{
+    text-align: center;
+    font-weight: bold;
+    font-size:x-large;
+    /* margin-bottom: 5px; */
+  }
+  
+  
+  .detalhe1{
+    border: 2px solid  #abd9e9;
+     border-radius: 20px;
+    padding:20px ;
+ 
+  }
+  
+  .row{
+    width: 100%;
+    box-sizing: border-box;
+    float:inline-start; 
+    position: relative;
+ 
+     
+      padding: 10px 5px 0 5px;
+      /* min-height: 50%; */
+      margin-bottom: 8px;
+      padding: 10px 5px 0 5px;
+      margin-left: 30px;
+
+    }
+
+    .coluna2{ 
+      width: 30%;
+      float:inline-start; 
+      display: inline-flex;
+    border: 2px solid  #abd9e9;
+
+       }
+
+       .coluna3{ 
+        width: 60%;
+       
+        display: inline-flex;
+    border: 2px solid  #abd9e9;
+    vertical-align: middle;
+
+         }
+ h2, p{
+    text-align: center;
+    /* padding: 0 0 10px  0; */
+    font-size: 18px;
+ margin-left: 10px;
+ vertical-align: middle;
+ 
+  }
+ 
+ 
+
+
+
+    
+
+
+.descricao{
+  margin: 0 45px;
+  text-align: justify;
+  /* width: 55%; */
+  line-height: 25px;
+
+}
+
+  .id{
+    max-width: 48px;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    white-space: nowrap;
+  margin: 0;
+
+  margin-left: 5px;
+
+  }
+  .lista-agenda {
+    display: flex;
+    /* margin: 10px 10px 10px 20px; */
+    margin: 0 45px;
+ 
+    border: 2px solid  #abd9e9;
+
+  }
+  
+  
+
+
+  .btn-agenda{
+    display: flex;
+justify-content: center;
+margin: 10px  0;
+  }
+
+  @media screen and (max-width: 480px) {
+    .center{
+      width: 80%;
+      height: auto;
+  }
+
+
+.descricao{
+  margin: 0 5px;
+}
+
+h2, p{
+ 
+  padding: 0 0 15px  0;
+ 
+}
+}
+  
+  @media screen and (max-width: 1240px) {
+     .funcionario {
+        grid-template-columns: 1fr;
+        margin: 1rem 0;
+        position: sticky;
+    }
+  
+    .center{
+  width: 70%;
+
+   
+    }
+ 
+  p, .descricao{
+ margin-bottom: 10px;
+  }
+
+  }  

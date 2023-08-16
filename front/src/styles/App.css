@@ -1,0 +1,98 @@
+  .editar {
+    width: 940px;
+    margin: 0 auto;
+  }
+  
+  .login-fomr {
+    margin: 5px 0;
+  }
+  
+  form label {
+    display: block;
+    font-size: 18px;
+    margin: 0 0 15px 0;
+    font-weight: bold;
+  }
+  .input-padrao {
+    width: 90%;
+    padding: 10px 25px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+  }
+  .input-right {
+    margin: 15px 0 0 0;
+    width: 90%;
+    padding: 10px 25px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    font-size: 20px;
+  
+    /* margin: 0 0 20px 0; */
+  }
+  .coluna {
+    /* width: 100%; */
+    display: flex;
+  }
+  .coluna-right {
+    width: 47%;
+  }
+  /* botao */
+  .button-senha {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    height: 40px;
+    width: 90%;
+    border-radius: 20px;
+    /* margin-top: 20px; */
+    color: #fff;
+    background-color: #08558b;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .button-senha:hover {
+    background-color: #1b223c;
+    transition: 0.5s;
+  }
+  .button-senha:active {
+    background: green;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .container {
+      width: auto;
+      margin: 0 15px;
+    }
+  
+    .editar {
+      width: auto;
+      margin: 0 15px;
+    }
+    .login-fomr {
+      margin: 0 0 5px 15px;
+    }
+    .coluna {
+      /* width: 100%; */
+      display: block;
+    }
+    .coluna-right {
+      width: 98%;
+    }
+    .pr {
+      padding: 24px;
+    }
+  }
+  
+  @media screen and (max-width: 992px) {
+    .editar {
+      width: auto;
+      margin: 0 15px;
+    }
+    .login-fomr {
+      margin: 0 0 0 20px;
+    }
+  }
+  
