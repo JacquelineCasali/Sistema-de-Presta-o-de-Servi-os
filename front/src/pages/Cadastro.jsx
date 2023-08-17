@@ -1,153 +1,140 @@
-import React, { useState,useEffect } from "react";
-// importando o titulo
-import { Helmet, HelmetProvider } from "react-helmet-async";
-import { useParams } from "react-router-dom";
-// importando estilo
-import "../styles/App.css";
-// import { useNavigate } from "react-router-dom";
+import React ,{useState}  from 'react'
+import axios from "axios"
+import {useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { Helmet, HelmetProvider } from "react-helmet-async"; // titulo da pagina
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-function Agenda() {
+import Professional from "../components/professional/Professional"
+import "../styles/Agenda.css"
 
-    // vindo da lista
-    const { id } = useParams();
-    const [services, setServices] = useState([]);
+
+// estilo de alerta
+import "react-toastify/dist/ReactToastify.css";
+
+export default function Cadastro() {
+ 
+ // formatação de alerta
+ const toastOptions = {
+    position: "top-center",
+    autoClose: 5000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "green",
   
-    useEffect(() => {
-      
-      axios.get('http://localhost:7000/services/'+ id)
-        .then((res) => {
-          console.log(res);
-          setServices(res.data);
-        })
-        .catch((err) => console.log(err));
-    }, []);
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        axios
-          .post(`https://petshop-proqsel.onrender.com/`, id)
-          .then((res) => {
-            console.log(res);
-      
-          })
-          .catch((err) => console.log(err));
-      };
-    
-  return (
-    <div className="App">
-      <Header />
-      <HelmetProvider>
-        <Helmet title="Cadastrar Pet" />
-      </HelmetProvider>
-      <section className="editar">
-      <div class="titulo">Agendamento</div>
+  };
+  // navegação 
+  const navigate = useNavigate();
+  
+  const [values, setValues] = useState({
+    nomecliente: "",
+    telephone: "",
+  
+  });
+  
+    // validação da senha
+    const handleValidation = () => {
+      const { nomecliente, telephone } = values;
+     if (nomecliente === "") {
+        //campo nao pode ser vazio
+        toast.error("Por favor, preencha seu nome", toastOptions);
+        return false;
+        } else if (telephone <= 8) {
+        // campo nao pode ser vazio
+        toast.error("O Telefone tem que ter de 8 dígitos", toastOptions);
+        return false;
+      }
+      return true;
+    };
+    const handleSubmit = async (e) => {
+      // intercepitação do evento
+      e.preventDefault();
+  
+      console.log("validation");
+       if (handleValidation()) {
+      //   // conectar banco de dados
+     
+     
+      axios.post('http://127.0.0.1:5430', values)
+      .then((res) => {
+        console.log(res);
+        navigate("/sucesso");
+      })
+      .catch((err) => console.log(err));
+  
        
-        <form className="login-fomr" onSubmit={handleSubmit}>
-          
-        <div className="coluna">
-            <div className="coluna-right">
-              <label htmlFor="professional">Professional : </label>
-              <input
-                className="input-padrao"
-                name="professional"
-                type="text"
-                onChange=
-                {services.professional} 
-              
-                placeholder="Digite seu CPF "
-                required
-              />
-            </div>
+        const { nomecliente, telephone } = values;
+        const { data } = await axios.post("http://127.0.0.1:5430", {
+          nomecliente: "",
+       telefone: "",
+        });
+        if (data.status === false) {
+          toast.error(data.msg, toastOptions);
+        }
+        if (data.status === true) {
+          localStorage.setItem(
+            "Cadastro",
+            // process.env.REACT_APP_LOCALHOST_KEY,
+            JSON.stringify(data.user)
+          );
+          navigate("/sucesso");
 
-            <div className="coluna-right">
-            <label htmlFor="serviçe">Serviçe:</label>
-              <input
-                className="input-padrao"
-                type="text"
-                name="serviçe"
-                onChange={services.name}
-                placeholder="Digite o telefone"
-                required
-              />
-</div>
-          </div>
-          
-          
-          
-          
-          
-          <label htmlFor="">Nome:</label>
 
-          <input
-            className="input-padrao"
-            type="text"
-            
-            placeholder="Digite o Nome Seu Nome"
-            required
-          />
-        
-          <div className="coluna">
-            <div className="coluna-right">
-              <label htmlFor="nameanimal">CPF : </label>
-              <input
-                className="input-padrao"
-                name="cpf"
-                type="text"
-                placeholder="Digite seu CPF "
-                required
-              />
-            </div>
+          
+        }
+      }
+    };
+  
+    return (
+  
+   <div>
+       <Header />
+        <HelmetProvider>
+        <Helmet title="Agendamento" />
+      </HelmetProvider>
 
-            <div className="coluna-right">
-            <label htmlFor="telefone">Telefone:</label>
-              <input
-                className="input-padrao"
-                type="text"
-                name="telefone"
-                placeholder="Digite o telefone"
-                required
-              />
-</div>
-          </div>
-          <div className="coluna">
-            <div className="coluna-right">
-             
-                     
-             
-              <label htmlFor="namedono">
-              Escolha a Data
-                <input
-                  className="input-right"
-                  type="date"
-                 
-                  required
-                />
-              </label>
-            </div>
-            <div className="coluna-right">
-            
-            <label htmlFor="telefone">Escolha um Horario</label>
-            <input
-                  className="input-padrao"
-                  type="time"
-                 
-                  required
-                />    
-                 
-             
-                        </div>
-          </div>
+      <div className='container'>
 
-          <button className="button-senha">Agendar</button>
-        </form>
-      </section>
-      <section className="pr"></section>
-      <Footer />
+        {/* lado esquerdo site */}
+  
+      <div className='center'style={{margin:' 12px 0 0 0 '}}>
+     
+       <h1 className='tituloagenda' >Agendamento </h1>
+       <Professional/>  
+       <form onSubmit={handleSubmit} >
+       <div className="form-agenda">
+
+       <div className="colunaright">
+       <div className="labelright">
+<label >Name client </label>
+       
+       <input className='input-agenda'
+
+          type="text"
+          placeholder="Name "
+          name="nomecliente"
+          onChange={(e) => setValues({ ...values, nomecliente: e.target.value })}
+     />
     </div>
-  );
-}
+    <div className="labelright">
+     <label >Telephone </label>
+                                <input className='input-agenda'
+                            type="text" 
+                            id="telephone" 
+                            placeholder="telephone"
+                            onChange={(e) => setValues({ ...values, telephone: e.target.value })}
+                            />
+</div>
+                           </div>
+                           </div>                          
+                    <button  className="btn-agendar">Agendar</button>
+                </form>
+       </div>
+            <ToastContainer toastStyle={{ backgroundColor: "crimson" }}  /> 
 
-export default Agenda;
+        </div>
+        <Footer />
+        </div>
+
+  )
+}

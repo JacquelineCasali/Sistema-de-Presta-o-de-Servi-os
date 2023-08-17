@@ -1,4 +1,4 @@
-import Routes from "./components/Routes/Routes";
+import Routes from "./Routes/Routes";
 
 // import "./styles/App.css";
 

@@ -64,17 +64,15 @@ h1{
   color: #fff;
 }
 
-.btn:hover {
+.btn:hover,.btn-detalhe:hover {
   box-shadow: rgb(0 0 0 / 25%) 0px 8px 24px;
 
 }
-.btn:active  {
+.btn:active, .btn-detalhe:active  {
 
   color: black;
 
 }
-
-
 
 .hamburger {
   display: none;

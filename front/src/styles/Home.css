@@ -1,194 +1,199 @@
-section {
-  padding: 5px 42px;
-  margin: 0 45px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-  .titulo {
-    text-align: center;
-    padding: 10px;
-    color: var(--primary);
-  font-size: 30px;
+.test{
+  position: sticky;
+  top: 90px;
+  left: 0;
+  z-index: 10;
+  background: white;
+}
+
+.titulo{
+  text-align: center;
+  font-weight: bold;
+  font-size:x-large;
+  /* margin-bottom: 5px; */
+  color: var(--primary);
+  padding: 10px;
+
+}
+.pesquisa-bar{
+ 
+  width: 60%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 200px;
+  }
+.funcionarios{
+  display: flex;
+}
+.lista-funcionario{
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+  justify-content: center;
+ }
+
+
+
+.pesquisa{
+  display: flex;
+  /* width: 60%; */
+  justify-content: center;
+  margin-bottom: 10px;
+  
+}
+
+  
+  .detalhe-funcionario{
+    border: 2px solid  #abd9e9;
+     border-radius: 20px;
+    padding:15px ;
+ width: 40%;
+ 
   }
   
-  .pesquisa{
-    display: flex;
-  }
-  /* .table-container {
-    margin: 0 60px;
-  } */
   
-  table {
-    /* margin: 0 0 2em 0; */
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    background: white;
-      border: none;
-      margin-top: 20px;
-  
-  }
-  table tbody tr {
-    border: solid 1px;
-    border-color: #dee2e6;
-    vertical-align: middle;
-    border-left: 0;
-    border-right: 0;
-  }
-  
-  /* cor de linhas alternadas */
-  tr:nth-child(even) {
-    /* background:lightgray; */
-  
-   background : rgb(246, 246, 246);
-  }
-  /* passa o mouse porcima */
-  .linha:hover {
-    box-shadow: rgb(0 0 0 / 25%) 0px 8px 24px;
+  .detalhe:hover {
+  box-shadow: rgb(0 0 0 / 25%) 0px 8px 24px;
   cursor: pointer;
   }
-  td{
-    padding: 1rem;
-  }
-  
-  td:first-letter {
-    text-transform: capitalize;
-  }
-  
-  table th {
-    font-size: 16px;
-    padding: 15px;
-    text-align: left;
-    font-weight: bold;
-  }
-  
-  
-  /* tabela */
-  .icones_banco{
-    width: 32px;
-    height: 32px;
-  
+
+
+ h2, p{
+    text-align: center;
+    padding: 0 0 10px  0;
+    font-size: 18px;
+    text-align: justify;
+    margin-left:5px ;
   }
  
-  .icone {
-    margin-right: 10px;
-    margin-top: 10px;
-    border-radius: 32px;
-    width:80px;
-    Padding:8px 16px
+.descricao1{
+  /* margin: 0 45px; */
+  text-align: justify;
+  width: 100%;
+  line-height: 25px;
+
+}
+.coluna-right{ 
+  width: 30%;
+  display: inline-flex;
+
+
+   }
+  .id{
+    max-width: 48px;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    white-space: nowrap;
+  margin: 0;
+
+  margin-left: 5px;
+
   }
 
- .btn{
 
- margin-left: 20px;
-    
+     .coluna-left{ 
+      width: 80%;
+      display: inline-flex;
+     }
+     .coluna-descricao{ 
+      width: 95%;
+      display: inline-flex;
+
+     }
+
+
+    .btn-agenda {
+    display: flex;
+justify-content: center;
+/* margin: 10px  0; */
   }
-  
 
-  .botao-comprar{
-    padding: 15px ;
+  .btn-detalhe {
+    padding: 14px 32px;
     border: 1px solid var(--primary);
-    background-color: var(--primary);
-      border-radius: 24px ;
-      cursor: pointer;
-  margin-right: 20px;
-  width: 100px;
-    
+    background-color: blue;
+    border-radius: 24px 4px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+ 
   }
   
-  .botao-vender{
-    padding: 15px ;
-    border: 1px solid var(--primary);
-    background-color:blue;
-      border-radius: 24px ;
-      cursor: pointer;
-  margin-right: 20px;
-  width: 100px;
-  margin-top: 20px;
-    
-  }
-  
-  .botao-comprar a ,.botao-vender a ,.botao-pesquisa a {
-    color: #fff;
-    font-size: 14px;
-    font-weight: bold;
-    width: 100px;
-  
-  }
-  
-  
+
   @media screen and (max-width: 480px) {
-    section {
-      padding: 5px 5px;
-    }
-  
-    .titulo {
-      padding: 5px;
-    }
-    .table-container {
-      margin: 5px;
-      text-align: -webkit-center;
-    }
-  
-    td {
-      width: 100%;
-    }
-    table thead {
-      display: none;
-    }
-    /* table td {
-      display: flex;
-      justify-content: space-between;
-    } */
-    table td {
-      display: block;
-      text-align: center;
-      
-    }
-    table td:first-of-type {
-      font-weight: bold;
-      font-size: 1.2rem;
-      text-align: center;
+    .pesquisa{
       display: block;
     }
-    table td:not(:first-of-type):before {
-      content: attr(data-title);
-      display: block;
-      font-weight: bold;
-    }
-  
-    table thead tr:first-child th, table tbody tr:first-child td {
-      border-top-width: 2px;
-  }
-  table thead tr th:first-child, table tbody tr td:first-child {
-    border-left-width: 1px;
-  }
-  .botao-vender, .botao-comprar {
-  margin-top:20px ;
-  margin-left: 80px;
-  
     
+    .lista-funcionario{
+      display: flex;
+      /* flex-wrap: wrap; */
+      /* gap:20px; */
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+     }
+  
+     .detalhe-funcionario {
+     
+      width: 80%;
   }
-  
-  .icones_banco{
-    margin-left: 110px;
-  
-  }
-  
-  }
-  
-  
-  
-  @media screen and (max-width: 940px) {
-    .page .container {
-        grid-template-columns: 1fr;
-        margin: 1rem 0;
-        display: grid;
+  /* .input-pesquisa {
+    width: 50%;
+    padding: 5px 5px;
+    font-size: 16px;
+  } */
+
+
+
+  .detalhe:hover {
+    box-shadow: 0;
+    
     }
-    table thead {
-      display: none;
+.descricao{
+  margin: 0 5px;
+}
+
+h2, p{
+ 
+  padding: 0 0 15px  0;
+  text-align: justify;
+}
+
+
+
+.btn-agenda {
+
+justify-content: center;
+flex-direction: column;
+/* margin: 10px  0; */
+}
+
+
+.coluna-left{ 
+  width: 90%;
+
+ }
+}
+  
+  @media screen and (max-width: 1240px) {
+  
+  
+    .center{
+  width: 70%;
+
+   
     }
-    .botao-vender, .botao-comprar {
-      margin-top:20px ;
-     width: 100px;
-        
-      }
+ 
+  p, .descricao{
+ margin-bottom: 10px;
   }
+
+  }  

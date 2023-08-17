@@ -5,8 +5,6 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "../styles/Funcionario.css"
-// import "../styles/reset.css";
-// import "../styles/pet.css";
 
 function Funcionario() {
   const { id } = useParams();
@@ -15,7 +13,7 @@ function Funcionario() {
   useEffect(() => {
     
     // axios.get('http://localhost:7000/services/'+ id)
-    axios.get('https://prestacao-service.onrender.com/services'+id)
+    axios.get('https://prestacao-service.onrender.com/services/'+id)
     .then((res) => {
         console.log(res);
         setServices(res.data);
@@ -30,39 +28,49 @@ function Funcionario() {
       </HelmetProvider>
      <div className="class">
 
-      <div class="titulo">Serviços e Funcionários</div>          
+      <div className="titulo">Serviços e Funcionários</div>          
    
       <div className="funcionario">
 
       <div className="center">
-           <div className="detalhe" >
-           <h5 > {services.professional}</h5>
-           
-           <div className="lista1 ">
+           <div className="pesquisa-funcionario" >
+           <div className="pesquisa">
+           <div className="coluna-right">
             <h2> Id:</h2>
             <p className="id">{services.id}</p> 
      
-          </div>
+            </div> 
+            <div className="coluna-left">
+           <h5 > {services.professional}</h5>
+           </div> 
+           </div> 
            
-         
+           <div className="coluna-left">
             <h2 > Name:</h2>
             <p>{services.name}</p>
+            </div>
+            <div className="coluna-descricao">
             <h2 >Description:</h2>
-            <p className="descricao" >{services.description}</p>
-            <h2 > Duration:</h2>
+            <p className="descricao1" >{services.description}</p>
+            </div>
+            <div className="coluna-left">
+              <h2 > Duration:</h2>
             
             <p >{services.duration}</p>
+            </div>
+            <div className="coluna-left">
             <h2 > Price:</h2>
             
             <p >{services.price}</p>
+            </div>
             <h2 > Availability:</h2>
             
             <p >{services.availability}</p>
          
 <div className="btn-agenda">
-<button class="btn">
-              <Link to={`/agenda/${services.id}`}> Agende Seu Horário</Link>
-            
+<button className="btn">
+
+      <Link to={`/cadastro/${services.id}`}> Agende Seu Horário</Link>
            
              </button>
 </div>
