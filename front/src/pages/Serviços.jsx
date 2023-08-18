@@ -5,8 +5,8 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "../styles/Funcionario.css"
-import Professional from "../components/professional/Professional"
-function Funcionario() {
+
+function Serviços() {
   const { id } = useParams();
   const [services, setServices] = useState([]);
 
@@ -31,18 +31,42 @@ function Funcionario() {
       <div className="titulo">Serviços e Funcionários</div>          
    
       <div className="funcionario">
-      
+
       <div className="center">
-      <Professional/>
-        
-           {/* <div className="pesquisa-funcionario" >
-            <h2 > Professional:</h2>
-            <p>{services.professional}</p>
-       
+           <div className="pesquisa-funcionario" >
+           <div className="pesquisa">
+           <div className="coluna-right">
+            <h2> Id:</h2>
+            <p className="id">{services.id}</p> 
+     
+            </div> 
+            <div className="coluna-left">
+           <h5 > {services.professional}</h5>
+           </div> 
+           </div> 
+           
+           <div className="coluna-left">
+            <h2 > Name:</h2>
+            <p>{services.name}</p>
+            </div>
+            <div className="coluna-descricao">
+            <h2 >Description:</h2>
+            <p className="descricao1" >{services.description}</p>
+            </div>
+            <div className="coluna-left">
+              <h2 > Duration:</h2>
+            
+            <p >{services.duration}</p>
+            </div>
+            <div className="coluna-left">
+            <h2 > Price:</h2>
+            
+            <p >{services.price}</p>
+            </div>
             <h2 > Availability:</h2>
             
             <p >{services.availability}</p>
-          */}
+         
 <div className="btn-agenda">
 <button className="btn">
 
@@ -57,11 +81,11 @@ function Funcionario() {
         
            </div>
       </div>
-      {/* </div>  */}
+      </div> 
       <Footer />
 </div>
 
      
        );
 }
-export default Funcionario;
+export default Serviços;

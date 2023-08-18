@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link,useNavigate } from "react-router-dom";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
@@ -10,7 +10,8 @@ import Professional from "../components/professional/Professional";
 function Sucesso() {
   const { id } = useParams();
   const [agenda, setAgenda] = useState([]);
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     
     // axios.get('http://localhost:7000/services/'+ id)
@@ -21,6 +22,11 @@ function Sucesso() {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  
+
+
+
   return (
     <div >
       <Header />
@@ -28,16 +34,19 @@ function Sucesso() {
         <Helmet title="Descrição das Atividades" />
       </HelmetProvider>
 
-      <Professional/>
+    
      <div className="class">
 
       <div class="titulo">Resposta Agendamento</div>          
    
       <div className="funcionario">
-
+   
       <div className="center">
+      <Professional/>
            <div className="pesquisa-funcionario" >
            <div className="pesquisa">
+         
+
            <div className="coluna-right">
             <h2> Id:</h2>
             <p className="id">{agenda.id_cliente}</p> 
@@ -66,10 +75,10 @@ function Sucesso() {
       <Link to={``}> Editar Seu Horário</Link>
            
              </button>
-             <button class="btn">
-
-      <Link to={``}> Cancelar </Link>
-           
+             <button class="btn"
+            >
+     
+      Cancelar
              </button>
 </div>
 

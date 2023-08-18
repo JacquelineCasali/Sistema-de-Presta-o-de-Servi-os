@@ -24,15 +24,16 @@ axios.get('https://prestacao-service.onrender.com/services')
     return (
     <div className='header'>
       <div className='container'>
-        <h1>Salão</h1>
+        <h1>Sistema de Prestação de Serviços</h1>
         <ul className={click? 'nav-menu active':'nav-menu'}>
-            <li>
-     <a href="/">Home</a>        
-                
-            </li>
+        
                    <li>
             <a href="/">
                 Serviços</a></li>
+                <li>
+     <a href="/disponibilidade">Funcionarios e Disponibilidade</a>        
+                
+            </li>
             <li> <a href="/">
                 Contato</a></li>
                 <li> <Link to={`/agenda/${services.id}`}>
@@ -43,7 +44,7 @@ axios.get('https://prestacao-service.onrender.com/services')
         </ul>
  <div className='btn-group'>
     <button className='btn'  href="/login" >
-    <Link  to="/login" >  Login
+    <Link  to="/" >  Login
      </Link>
 
      </button>

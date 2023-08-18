@@ -7,7 +7,8 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Professional from "../components/professional/Professional"
 import "../styles/Agenda.css"
-
+import Datepicker from "react-datepicker"
+import "react-datepicker/dist/react-datepicker.css";
 
 // estilo de alerta
 import "react-toastify/dist/ReactToastify.css";
@@ -25,10 +26,15 @@ export default function Cadastro() {
   };
   // navegação 
   const navigate = useNavigate();
+  const [selectedDate, setSelectedDate]= useState(null);
   
   const [values, setValues] = useState({
     nomecliente: "",
     telephone: "",
+  //  date:"",
+    // time:"",
+    service_id:"",
+
   
   });
   
@@ -44,47 +50,46 @@ export default function Cadastro() {
         toast.error("O Telefone tem que ter de 8 dígitos", toastOptions);
         return false;
       }
+      
       return true;
     };
+
+//   const dateFormatAux=(date)=>{
+// var d = new Date(date),
+// month=''
+//     }
+//formatar data
+const dateFormat=(date)=>{
+// let formartYmd=dateFormatAux(date)
+
+
+  console.log(new Date(date))
+}
+    
+
     const handleSubmit = async (e) => {
       // intercepitação do evento
       e.preventDefault();
-  
+  dateFormat(selectedDate)
       console.log("validation");
        if (handleValidation()) {
       //   // conectar banco de dados
-     
-     
+        
       axios.post('http://127.0.0.1:5430', values)
       .then((res) => {
         console.log(res);
-        navigate("/sucesso");
+     
+        navigate(`/resumo`);
       })
       .catch((err) => console.log(err));
   
-       
-        const { nomecliente, telephone } = values;
-        const { data } = await axios.post("http://127.0.0.1:5430", {
-          nomecliente: "",
-       telefone: "",
-        });
-        if (data.status === false) {
-          toast.error(data.msg, toastOptions);
-        }
-        if (data.status === true) {
-          localStorage.setItem(
-            "Cadastro",
-            // process.env.REACT_APP_LOCALHOST_KEY,
-            JSON.stringify(data.user)
-          );
-          navigate("/sucesso");
-
-
-          
-        }
-      }
+          }
     };
   
+
+
+
+    
     return (
   
    <div>
@@ -106,7 +111,7 @@ export default function Cadastro() {
 
        <div className="colunaright">
        <div className="labelright">
-<label >Name client </label>
+      <label >Name client </label>
        
        <input className='input-agenda'
 
@@ -118,21 +123,55 @@ export default function Cadastro() {
     </div>
     <div className="labelright">
      <label >Telephone </label>
-                                <input className='input-agenda'
+    <input className='input-agenda'
                             type="text" 
                             id="telephone" 
                             placeholder="telephone"
-                            onChange={(e) => setValues({ ...values, telephone: e.target.value })}
-                            />
+      onChange={(e) => setValues({ ...values, telephone: e.target.value })}
+        />
+       
 </div>
-                           </div>
-                           </div>                          
-                    <button  className="btn-agendar">Agendar</button>
-                </form>
-       </div>
-            <ToastContainer toastStyle={{ backgroundColor: "crimson" }}  /> 
 
-        </div>
+
+
+
+
+
+</div></div>
+
+<div className="colunaright">
+<div className="labelright">
+<label >Calendário </label>
+<Datepicker 
+selected={selectedDate}
+onChange={(date) => setSelectedDate(date)}
+// onChange={(e) => setValues({ ...values, date: e.target.value })}
+className='input-agenda'
+id='date'
+placeholderText='Escolha uma data'
+// formatando a data
+// dateFormat = "dd/MM/yyyy"
+
+/>
+</div>
+<div className="labelright">
+     <label >Time </label>
+    <input className='input-agenda'
+                            type="text" 
+                            id="time" 
+                            placeholder="Time"
+      onChange={(e) => setValues({ ...values, time: e.target.value })}
+        />
+  </div>     
+
+</div>
+
+ <button  className="btn-agendar">Agendar</button>
+      </form>
+       </div>
+     <ToastContainer toastStyle={{ backgroundColor: "crimson" }}  /> 
+
+     </div>
         <Footer />
         </div>
 

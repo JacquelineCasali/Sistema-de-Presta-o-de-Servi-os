@@ -20,16 +20,9 @@
  flex-direction: column;
   margin:  0 ;
   max-height: auto;
+  border: 2px solid #abd9e9;
     }
 
-  .pesquisa-funcionario{
-    justify-content: center;
-    margin-bottom: 10px;
-    border: 2px solid  #abd9e9;
-    border-radius: 20px;
-   padding:15px ;
-
-  }
   h5{
     margin: 0;
     font-weight: bold;

@@ -7,5 +7,6 @@ router.get("/", agendaController.lista);
 router.get("/:id", agendaController.show);
 router.post("/", agendaController.create);
 router.put("/:id", agendaController.update);
+
 router.delete("/:id", agendaController.delete);
  module.exports = router;

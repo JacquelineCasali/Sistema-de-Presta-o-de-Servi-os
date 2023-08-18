@@ -1,11 +1,11 @@
 import React from 'react'
-import "./SearchResultList.css"
-import SearchResult from "./SearchResult"
+import "../SearchBar/SearchResultList.css"
+import SearchResultPro from "./SearchResultPro"
 function SearchResultList({results}) {
   return (
     <div className='result-list'>
      {results.map((result,id)=>{
-      return <SearchResult result={result} key={id}/>;
+      return <SearchResultPro result={result} key={id}/>;
      })}
      
      {/* <div><Link to={'/cadastro'}>A</Link></div> */}

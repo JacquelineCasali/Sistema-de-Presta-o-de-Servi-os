@@ -1,0 +1,8 @@
+.timepicker-control-section{
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 2% 0;
+}
+.control-pane.default, .control-section{
+    margin-top: 60px;
+}

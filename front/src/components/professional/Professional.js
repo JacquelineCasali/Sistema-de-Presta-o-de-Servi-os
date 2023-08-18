@@ -12,11 +12,12 @@ export default function Professional() {
     // axios.get('http://localhost:7000/services/'+ id)
     axios.get('https://prestacao-service.onrender.com/services/'+id)
     .then((res) => {
-        console.log(res);
+        // console.log(res);
         setServices(res.data);
       })
       .catch((err) => console.log(err));
   }, []);
+  
   return (
          <div className="pesquisa">
            <div className="left">

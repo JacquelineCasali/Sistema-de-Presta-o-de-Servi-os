@@ -25,7 +25,7 @@ const agendaController = {
 
       try {
         const { rows } = await pool.query(
-          "SELECT * FROM cliente WHERE id_cliente=($1)",
+          "SELECT * FROM cliente WHERE service_id=($1)",
           [id]
         );
         return res.status(200).send(rows);
@@ -39,14 +39,14 @@ const agendaController = {
     ("/",
     async (req, res) => {
       const { nomecliente } = req.body;
-      const { telefone } = req.body;
-      const { cpf  } = req.body;
-     
-
+      const { telephone } = req.body;
+    const {date}=req.body;
+    const {time}=req.body;
+    const {status}=req.body;
       try {
         await pool.query(
-          "INSERT INTO cliente(nomecliente , telefone, cpf) VALUES ($1,$2,$3) RETURNING * ",
-          [nomecliente ,telefone, cpf]
+          "INSERT INTO cliente (nomecliente , telephone,date, time,status) VALUES ($1,$2,$3,$4,$5) RETURNING * ",
+          [nomecliente , telephone,date, time,status]
         );
         return res.status(200).send({ msg: "Cliente cadastrado com sucesso " });
       } catch (err) {
@@ -56,21 +56,21 @@ const agendaController = {
 
   //   // atualizando 
   update:
-    ("/:id",
-    async (req, res) => {
-      const { id } = req.params;
-      const { nomecliente ,telefone, cpf} = req.body;
+  ("/:id",
+  async (req, res) => {
+    const { id } = req.params;
+    const { nomecliente , telephone,date, time,status } = req.body;
 
-      try {
-        await pool.query(
-          "UPDATE cliente SET nomecliente=($1), telefone=($2), cpf=($3) WHERE id_cliente=($4) RETURNING * ",
-          [nomecliente ,telefone, cpf, id]
-        );
-        return res.status(200).send({ msg: "Cliente Atulizado com sucesso " });
-      } catch (err) {
-        return res.status(400).send({ msg: "Cliente já cadastrado " });
-      }
-    }),
+    try {
+      await pool.query(
+        "UPDATE cliente SET nomecliente=($1), telephone=($2),date=($3), time=($4),status=($5)  WHERE service_id=($6) RETURNING * ",
+        [nomecliente , telephone,date, time,status, id]
+      );
+      return res.status(200).send({ msg: "Atulizado com sucesso " });
+    } catch (err) {
+      return res.status(400).send({ msg: "Error"  });
+    }
+  }),
 
   // deletando
   delete:
@@ -79,8 +79,8 @@ const agendaController = {
       const { id } = req.params;
 
       try {
-        await pool.query("DELETE FROM cliente WHERE id_cliente=($1)", [id]);
-        return res.status(200).send({ msg: "Deletado com sucesso " });
+        await pool.query("DELETE FROM cliente WHERE service_id=($1)", [id]);
+        return res.status(200).send({ msg: "Cancelado com sucesso " });
       } catch (err) {
         return res.status(400).send(err);
       }
