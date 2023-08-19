@@ -5,7 +5,7 @@ const pool = new Pool({
 });
 
 const agendaController = {
-  // listando os pets
+
   lista:
     ("/",
     async (req, res) => {
@@ -25,7 +25,7 @@ const agendaController = {
 
       try {
         const { rows } = await pool.query(
-          "SELECT * FROM cliente WHERE service_id=($1)",
+          "SELECT * FROM cliente WHERE id=($1)",
           [id]
         );
         return res.status(200).send(rows);
@@ -63,7 +63,7 @@ const agendaController = {
 
     try {
       await pool.query(
-        "UPDATE cliente SET nomecliente=($1), telephone=($2),date=($3), time=($4),status=($5)  WHERE service_id=($6) RETURNING * ",
+        "UPDATE cliente SET nomecliente=($1), telephone=($2),date=($3), time=($4),status=($5)  WHERE id=($6) RETURNING * ",
         [nomecliente , telephone,date, time,status, id]
       );
       return res.status(200).send({ msg: "Atulizado com sucesso " });
@@ -79,7 +79,7 @@ const agendaController = {
       const { id } = req.params;
 
       try {
-        await pool.query("DELETE FROM cliente WHERE service_id=($1)", [id]);
+        await pool.query("DELETE FROM cliente WHERE id=($1)", [id]);
         return res.status(200).send({ msg: "Cancelado com sucesso " });
       } catch (err) {
         return res.status(400).send(err);

@@ -5,28 +5,26 @@ import { Helmet, HelmetProvider } from "react-helmet-async";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import "../styles/Funcionario.css"
-import Professional from "../components/professional/Professional";
+// import Professional from "../components/professional/Professional";
 
 function Sucesso() {
   const { id } = useParams();
   const [agenda, setAgenda] = useState([]);
   const navigate = useNavigate();
   
-  useEffect(() => {
+
     
-    // axios.get('http://localhost:7000/services/'+ id)
-    axios.get('http://127.0.0.1:5430' +id)
-    .then((res) => {
-        console.log(res);
-        setAgenda(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+    useEffect(() => {
+    
+      // axios.get('http://localhost:7000/services/'+ id)
+      axios.get('http://127.0.0.1:5430 '+id)
+      .then((res) => {
+          console.log(res);
+          setAgenda(res.data);
 
-  
-
-
-
+        })
+        .catch((err) => console.log(err));
+    }, []);
   return (
     <div >
       <Header />
@@ -42,14 +40,14 @@ function Sucesso() {
       <div className="funcionario">
    
       <div className="center">
-      <Professional/>
+      {/* <Professional/> */}
            <div className="pesquisa-funcionario" >
            <div className="pesquisa">
          
 
            <div className="coluna-right">
             <h2> Id:</h2>
-            <p className="id">{agenda.id_cliente}</p> 
+            <p className="id">{agenda.id}</p> 
      
             </div> 
 

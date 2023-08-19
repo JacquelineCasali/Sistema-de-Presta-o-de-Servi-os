@@ -9,7 +9,7 @@ import SearchBar from "../components/SearchBar/SearchBar"
 import SearchResultList from "../components/SearchBar/SearchResultList"
 import "../styles/Home.css"
 
-function Home() {
+function ServicoseFuncionarios() {
   const [results,setResults]=useState([])
   const [services, setServices] = useState([]);
 
@@ -94,13 +94,13 @@ function Home() {
             </div>
 <div className="btn-agenda">
 <button className="btn-detalhe">
-              <Link to={`/${services.id}`}>Detalhe
+              <Link to={`../servicoseFuncionarios/${services.id}`}>Detalhe
                      </Link>
                 
               </button >
 
 <button className="btn">
-              <Link to={`cadastro/${services.id}`}> Agende Seu Horário</Link>
+              <Link to={`/${services.id}`}> Agende Seu Horário</Link>
              </button>
            
 </div>
@@ -120,4 +120,4 @@ function Home() {
       
   );
 }
-export default Home;
+export default ServicoseFuncionarios;

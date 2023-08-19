@@ -28,27 +28,26 @@ axios.get('https://prestacao-service.onrender.com/services')
         <ul className={click? 'nav-menu active':'nav-menu'}>
         
                    <li>
-            <a href="/">
-                Serviços</a></li>
+            <Link to="/servicoseFuncionarios">
+                Serviços e Funcionarios</Link></li>
                 <li>
-     <a href="/disponibilidade">Funcionarios e Disponibilidade</a>        
+     <Link to="/funcionarioseDisponibilidade">Funcionarios e Disponibilidade</Link>        
                 
             </li>
-            <li> <a href="/">
-                Contato</a></li>
-                <li> <Link to={`/agenda/${services.id}`}>
+          
+                <li> <Link to={"../"}>
                 Agendamento </Link>
                
                   
               </li>
         </ul>
- <div className='btn-group'>
+ {/* <div className='btn-group'>
     <button className='btn'  href="/login" >
     <Link  to="/" >  Login
      </Link>
 
      </button>
- </div>
+ </div> */}
 {/* botao responsivo */}
 <div className='hamburger' onClick={handerClick}>
   {click ?(<FaTimes size={20} style={{color:'#333'}}/>) :<FaBars size={20} style={{color:'#333'}}/>}

@@ -10,7 +10,7 @@ import SearchResultList from "../components/SearchProfessional/SearchResultList"
 // import "../styles/Home.css"
 
 
-function Disponibilidade() {
+function FuncionarioseDisponibilidade() {
   const [results,setResults]=useState([])
   const [services, setServices] = useState([]);
 
@@ -73,13 +73,13 @@ function Disponibilidade() {
             </div>
 <div className="btn-agenda">
 <button className="btn-detalhe">
-              <Link to={`/${services.id}`}>Detalhe do Serviço
+              <Link to={`../servicoseFuncionarios/${services.id}`}>Detalhe do Serviço
                      </Link>
                 
               </button >
 
 <button className="btn">
-              <Link to={`/cadastro/${services.id}`}> Agende Seu Horário</Link>
+              <Link to={`/${services.id}`}> Agende Seu Horário</Link>
              </button>
            
 </div>
@@ -99,4 +99,4 @@ function Disponibilidade() {
       
   );
 }
-export default Disponibilidade;
+export default FuncionarioseDisponibilidade;

@@ -13,7 +13,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // estilo de alerta
 import "react-toastify/dist/ReactToastify.css";
 
-export default function Cadastro() {
+export default function Agendamento() {
  
  // formatação de alerta
  const toastOptions = {
@@ -33,7 +33,7 @@ export default function Cadastro() {
     telephone: "",
   //  date:"",
     // time:"",
-    service_id:"",
+    
 
   
   });
@@ -54,23 +54,12 @@ export default function Cadastro() {
       return true;
     };
 
-//   const dateFormatAux=(date)=>{
-// var d = new Date(date),
-// month=''
-//     }
-//formatar data
-const dateFormat=(date)=>{
-// let formartYmd=dateFormatAux(date)
-
-
-  console.log(new Date(date))
-}
     
 
     const handleSubmit = async (e) => {
       // intercepitação do evento
       e.preventDefault();
-  dateFormat(selectedDate)
+  // dateFormat(selectedDate)
       console.log("validation");
        if (handleValidation()) {
       //   // conectar banco de dados
@@ -79,7 +68,7 @@ const dateFormat=(date)=>{
       .then((res) => {
         console.log(res);
      
-        navigate(`/resumo`);
+        navigate("/sucesso");
       })
       .catch((err) => console.log(err));
   
@@ -141,11 +130,11 @@ const dateFormat=(date)=>{
 
 <div className="colunaright">
 <div className="labelright">
-<label >Calendário </label>
+<label >Date </label>
 <Datepicker 
 selected={selectedDate}
 onChange={(date) => setSelectedDate(date)}
-// onChange={(e) => setValues({ ...values, date: e.target.value })}
+
 className='input-agenda'
 id='date'
 placeholderText='Escolha uma data'
