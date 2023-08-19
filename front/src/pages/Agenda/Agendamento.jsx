@@ -3,10 +3,10 @@ import axios from "axios"
 import {useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { Helmet, HelmetProvider } from "react-helmet-async"; // titulo da pagina
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
-import Professional from "../components/professional/Professional"
-import "../styles/Agenda.css"
+import Header from "../../components/header/Header";
+import Footer from "../../components/footer/Footer";
+import Professional from "../../components/professional/Professional"
+import "../../styles/Agenda.css"
 import Datepicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 
