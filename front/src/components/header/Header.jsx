@@ -3,22 +3,14 @@ import React, { useEffect, useState } from "react";
 import {FaBars, FaTimes} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import "../header/Header.css"
-import axios from 'axios'
+
 
 export default function Navbar() {
 // menu
 const [click,setClick] =useState(false)
 const handerClick=()=>setClick(!click)
  //  importando do banco
- const [services, setServices] = useState([]);
- // useEffect chama a função do banco
- useEffect(() => {
- //  axios.get('http://localhost:7000/services')
-axios.get('https://prestacao-service.onrender.com/services')
-
-  .then(res=>setServices(res.data))
-  .catch(err=>console.log(err))
- }, []);
+ 
 
 
     return (
@@ -36,10 +28,16 @@ axios.get('https://prestacao-service.onrender.com/services')
             </li>
           
                 <li> <Link to={"../"}>
-                Agendamento </Link>
+                Agenda </Link>
                
                   
               </li>
+              <li> <Link to={"../agendamentos"}>
+              Agendamentos </Link>
+               
+                  
+              </li>
+              
         </ul>
  {/* <div className='btn-group'>
     <button className='btn'  href="/login" >
@@ -50,7 +48,7 @@ axios.get('https://prestacao-service.onrender.com/services')
  </div> */}
 {/* botao responsivo */}
 <div className='hamburger' onClick={handerClick}>
-  {click ?(<FaTimes size={20} style={{color:'#333'}}/>) :<FaBars size={20} style={{color:'#333'}}/>}
+  {click ?(<FaTimes size={30} style={{color:'#333'}}/>) :<FaBars size={30} style={{color:'#333'}}/>}
 </div>
 
 

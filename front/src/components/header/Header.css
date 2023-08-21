@@ -13,11 +13,9 @@
   top: 0;
   left: 0;
   z-index: 10;
+  /* margin-left: 50px; */
 }
-.container{
-  max-width: 1240px;
 
-}
 .header .container {
   display: flex;
   justify-content: space-between;
@@ -78,6 +76,7 @@ h1{
 .hamburger {
   display: none;
   cursor: pointer;
+ 
 }
 
 @media screen and (max-width: 768px){
@@ -88,17 +87,18 @@ h1 {
     line-height: 1.2;
     margin-right: 20px;
 }
-.btn {
+/* .btn {
 
   margin: 1rem 0;
   padding: 10px;
-}
+} */
 
 
 }
 @media screen and (max-width:1240px) {
    .hamburger {
       display: flex;
+  
   }
 
   .nav-menu {
@@ -113,6 +113,7 @@ h1 {
       z-index: 2;
       background: #fff;
       border-left: 1px solid #eee;
+      top:200px
   }
 
   .nav-menu.active {
@@ -128,4 +129,8 @@ h1 {
   .nav-menu a {
       font-size: 1.2rem;
   }
+  /* h1 {
+   
+    margin-right: 5px;
+} */
 } 

@@ -100,7 +100,7 @@ function ServicoseFuncionarios() {
               </button >
 
 <button className="btn">
-              <Link to={`/${services.id}`}> Agende Seu Horário</Link>
+              <Link to={`/`}> Agende Seu Horário</Link>
              </button>
            
 </div>

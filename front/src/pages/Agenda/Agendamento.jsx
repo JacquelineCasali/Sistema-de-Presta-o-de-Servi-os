@@ -7,8 +7,7 @@ import Header from "../../components/header/Header";
 import Footer from "../../components/footer/Footer";
 import Professional from "../../components/professional/Professional"
 import "../../styles/Agenda.css"
-import Datepicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css";
+
 
 // estilo de alerta
 import "react-toastify/dist/ReactToastify.css";
@@ -26,19 +25,17 @@ export default function Agendamento() {
   };
   // navegação 
   const navigate = useNavigate();
-  const [selectedDate, setSelectedDate]= useState(null);
-  
+
+  // const [submitted, setSubmitted] = useState(false);
+ 
+ 
   const [values, setValues] = useState({
     nomecliente: "",
     telephone: "",
-  //  date:"",
-    // time:"",
-    
-
-  
+   date:""
   });
-  
-    // validação da senha
+ 
+     // validação da senha
     const handleValidation = () => {
       const { nomecliente, telephone } = values;
      if (nomecliente === "") {
@@ -64,22 +61,19 @@ export default function Agendamento() {
        if (handleValidation()) {
       //   // conectar banco de dados
         
-      axios.post('http://127.0.0.1:5430', values)
+      axios.post(' https://banco-agenda.onrender.com/', values)
       .then((res) => {
         console.log(res);
      
-        navigate("/sucesso");
+        navigate("/agendado");
+        // <Link to={`../servicoseFuncionarios/${services.id}`}>Detalhe
+        // </Link>
       })
       .catch((err) => console.log(err));
   
           }
     };
-  
-
-
-
-    
-    return (
+      return (
   
    <div>
        <Header />
@@ -131,22 +125,29 @@ export default function Agendamento() {
 <div className="colunaright">
 <div className="labelright">
 <label >Date </label>
-<Datepicker 
+<input className='input-agenda'
+                            type="date" 
+                            
+                            placeholder="Data"
+      onChange={(e) => setValues({ ...values, date: e.target.value })}
+        />
+{/* <Datepicker 
 selected={selectedDate}
-onChange={(date) => setSelectedDate(date)}
 
+// setValues({ ...values, time: e.target.value })
+onChange={(e) => setSelectedDate({...values,date:e.target.value})}
 className='input-agenda'
 id='date'
 placeholderText='Escolha uma data'
 // formatando a data
-// dateFormat = "dd/MM/yyyy"
+dateFormat = "dd/MM/yyyy"
 
-/>
+/> */}
 </div>
 <div className="labelright">
      <label >Time </label>
     <input className='input-agenda'
-                            type="text" 
+                            type="time" 
                             id="time" 
                             placeholder="Time"
       onChange={(e) => setValues({ ...values, time: e.target.value })}
@@ -155,12 +156,18 @@ placeholderText='Escolha uma data'
 
 </div>
 
- <button  className="btn-agendar">Agendar</button>
+ <button  className="btn-agendar">   
+             
+  
+  Agendar</button>
+
+     
       </form>
        </div>
      <ToastContainer toastStyle={{ backgroundColor: "crimson" }}  /> 
 
      </div>
+     <section></section>
         <Footer />
         </div>
 

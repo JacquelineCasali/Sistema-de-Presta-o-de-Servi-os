@@ -6,7 +6,7 @@
   align-items: center;
   padding: 1rem;
   /* line-height: 100%; */
-  
+
 }
 
 
@@ -77,8 +77,19 @@ padding: 14px 32px;
 }
 
 
-
-
+@media screen and (max-width: 480px) {
+  .colunaright {
+    flex-direction: column;
+}
+.input-agenda {
+ width: 90%;
+}
+}
+@media screen and (max-width: 760px) {
+  .colunaright {
+    flex-direction: column;
+}
+}
 
 @media screen and (max-width: 940px) {
   .container {
@@ -89,5 +100,7 @@ padding: 14px 32px;
  .center {
 margin: 20px 0 ;
 }
-
+.input-agenda {
+  width: 90%;
+ }
 }  

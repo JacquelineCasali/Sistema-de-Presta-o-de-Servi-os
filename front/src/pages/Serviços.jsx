@@ -70,7 +70,7 @@ function Serviços() {
 <div className="btn-agenda">
 <button className="btn">
 
-      <Link to={`/${services.id}`}> Agende Seu Horário</Link>
+      <Link to={`/`}> Agende Seu Horário</Link>
            
              </button>
 </div>
